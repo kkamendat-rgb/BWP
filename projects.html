@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recent Projects</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <img src="Images /logo.png" alt="Blue Water Pool Service Logo" />
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+
+        <li class="dropdown">
+          <a href="services.html">Services <span class="arrow"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="pool-maintenance.html">Swimming Pool & Maintenance</a></li>
+            <li><a href="hot-tubs.html">Hot Tubs & Swim Spas</a></li>
+            <li><a href="specialty-equipment.html">Specialty Equipment & Materials</a></li>
+          </ul>
+        </li>
+
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="projects.html">Recent Projects</a></li>
+        <li><a href="areas-we-service.html">Areas We Service</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+
+        <li>
+          <a href="https://clienthub.getjobber.com/client_hubs/f9afc6b9-3da8-4a99-a819-56aa45afb94f/public/work_request/new"
+             class="button" target="_blank">
+            Book Online
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="projects">
+      <h1>Recent Projects</h1>
+      <p>Take a look at some of the successful pool and spa projects we've completed for our happy clients!</p>
+
+      <!-- FILTER BUTTONS -->
+      <div class="project-filters">
+        <button class="filter-btn active" onclick="showProjects('pools', this)">Pool Projects</button>
+        <button class="filter-btn" onclick="showProjects('hottubs', this)">Hot Tub Projects</button>
+      </div>
+
+      <!-- POOL PROJECTS -->
+      <div class="project-grid" id="pools">
+        <img src="Images /picture1.JPG" alt="Pool Project">
+        <img src="Images /picture10.JPG" alt="Pool Project">
+        <img src="Images /picture11.JPG" alt="Pool Project">
+      </div>
+
+      <!-- HOT TUB PROJECTS -->
+      <div class="project-grid hidden" id="hottubs">
+        <img src="Images /picture3.JPG" alt="Hot Tub Project">
+        <img src="Images /picture8.JPG" alt="Hot Tub Project">
+        <img src="Images /picture7.JPG" alt="Hot Tub Project">
+        <img src="Images /picture2.JPG" alt="Hot Tub Project">
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Blue Water Pool Service. All rights reserved.</p>
+  </footer>
+
+  <!-- PROJECT FILTER SCRIPT -->
+  <script>
+    function showProjects(type, button) {
+      document.getElementById('pools').classList.add('hidden');
+      document.getElementById('hottubs').classList.add('hidden');
+
+      document.getElementById(type).classList.remove('hidden');
+
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      button.classList.add('active');
+    }
+  </script>
+
+  <!-- DROPDOWN ARROW SCRIPT -->
+  <script>
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+      const arrow = dropdown.querySelector('.arrow');
+      dropdown.addEventListener('mouseenter', () => {
+        arrow.style.transform = 'rotate(180deg)';
+      });
+      dropdown.addEventListener('mouseleave', () => {
+        arrow.style.transform = 'rotate(0deg)';
+      });
+    });
+  </script>
+</body>
+</html>
